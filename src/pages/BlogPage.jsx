@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import BlogCard from '../components/BlogCard';
-import Footer from '../components/FOOTER.JSX';
+import Footer from '../components/footer';
 
 const BlogPage = () => {
   // Predefined blog posts data about healthcare topics.
