@@ -1,41 +1,67 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import DietGenerator from "./pages/DietGenerator";
 import Dashboard from "./pages/Dashboard";
 import BlogPage from "./pages/BlogPage";
-import React from "react";
+import Menstrualcycle from "./pages/Menstrualcycle";
 import Login from "./components/login";
 import Signup from "./components/signup";
 import VoiceflowChatbot from "./components/VoiceflowChatbot";
-import Userpage from "./user";
+import ProtectedRoute from "./ProtectedRoute";
+import Homepage from "./pages/Homepage";
 
 const AppRoutes = () => {
-    return (
-        <Router>
-            <InnerRoutes />
-        </Router>
-    );
-};
-
-const InnerRoutes = () => {
-    const location = useLocation();
-    const hideChatbot = location.pathname === "/login" || location.pathname === "/signup";
-
-    return (
-        <>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/home" element={<Dashboard />} />
-                <Route path="/blog" element={<BlogPage />} /> 
-                <Route path="/diet-generator" element={<DietGenerator />} />
-                <Route path="/login" element={<Userpage />} />
-                {/* <Route path="/signup" element={<Userpage />} /> */}
-                <Route path="*" element={<h1 className="text-center mt-20 text-2xl text-red-500">404 Not Found</h1>} />
-            </Routes>
-            {!hideChatbot && <VoiceflowChatbot />}
-        </>
-    );
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <ProtectedRoute>
+              <BlogPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/menstrualcycle"
+          element={
+            <ProtectedRoute>
+              <Menstrualcycle />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/diet-generator"
+          element={
+            <ProtectedRoute>
+              <DietGenerator />
+            </ProtectedRoute>
+          }
+        />
+        {/* <Route
+          path="/chatbot"
+          element={
+            <ProtectedRoute>
+              <VoiceflowChatbot />
+            </ProtectedRoute>
+          }
+        /> */}
+        <Route path="*" element={<h1 className="text-center">404 Not Found</h1>} />
+      </Routes>
+    </Router>
+  );
 };
 
 export default AppRoutes;

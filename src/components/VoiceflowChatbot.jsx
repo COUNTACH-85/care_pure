@@ -20,6 +20,10 @@ const VoiceflowChatbot = () => {
       }
     };
 
+    script.onerror = () => {
+      console.error("Failed to load Voiceflow script");
+    };
+
     document.body.appendChild(script);
 
     // Cleanup: Remove script if the component unmounts
