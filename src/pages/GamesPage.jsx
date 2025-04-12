@@ -1,8 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
-import Navbar from "@/components/common/Navbar";
-import GamesSection from "@/components/games/GamesSection";
+import { Link, Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import GamesSection from "../components/games/GamesSection";
 import { ArrowLeft } from "lucide-react";
 
 const GamesPage = () => {
@@ -19,7 +19,7 @@ const GamesPage = () => {
           <div className="absolute bottom-0 left-1/3 w-40 h-40 bg-purple-200 rounded-full opacity-20 animate-float-more-delayed"></div>
         </div>
         
-        <Navbar />
+        {/* <Navbar /> */}
         <main className="container mx-auto px-4 py-8 animate-slide-down relative">
           <Link 
             to="/dashboard" 
@@ -31,6 +31,7 @@ const GamesPage = () => {
           <h1 className="text-4xl font-bold text-center mb-8 animate-slide-in-left text-green-800">
             Care Pure Games
           </h1>
+          <Outlet /> {/* Add this to render child routes */}
           <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
             <GamesSection />
           </div>

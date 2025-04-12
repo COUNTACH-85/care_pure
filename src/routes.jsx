@@ -6,9 +6,18 @@ import BlogPage from "./pages/BlogPage";
 import Menstrualcycle from "./pages/Menstrualcycle";
 import Login from "./components/login";
 import Signup from "./components/signup";
-import VoiceflowChatbot from "./components/VoiceflowChatbot";
+// import VoiceflowChatbot from "./components/VoiceflowChatbot";
 import ProtectedRoute from "./ProtectedRoute";
 import Homepage from "./pages/Homepage";
+import FoodSortingGame from "./components/games/FoodSortingGame"
+import MindfulnessMazeGame from "./components/games/MindfulnessMazeGame";
+import HydrationHeroGame from "./components/games/HydrationHeroGame";
+import FoodSortingPage from "./pages/games/FoodSortingPage";
+import MindfulnessMazePage from "./pages/games/MindfulnessMazePage";
+import HydrationHeroPage from "./pages/games/HydrationHeroPage";
+import { lazy } from "react";
+import GamesPage from "./pages/GamesPage";
+import Profile from "./pages/Profile";
 
 const AppRoutes = () => {
   return (
@@ -50,14 +59,37 @@ const AppRoutes = () => {
             </ProtectedRoute>
           }
         />
-        {/* <Route
-          path="/chatbot"
+        <Route
+          path="/games"
           element={
             <ProtectedRoute>
-              <VoiceflowChatbot />
+              <GamesPage />
             </ProtectedRoute>
           }
-        /> */}
+        >
+          <Route path="food-sorting" element={
+            <ProtectedRoute>
+              <FoodSortingPage />
+            </ProtectedRoute>
+          } />
+          <Route path="mindfulness-maze" element={
+            <ProtectedRoute>
+              <MindfulnessMazePage />
+            </ProtectedRoute>
+          } />
+          <Route path="hydration-hero" element={
+            <ProtectedRoute>
+              <HydrationHeroPage />
+            </ProtectedRoute>
+          } />
+        </Route>
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } />
         <Route path="*" element={<h1 className="text-center">404 Not Found</h1>} />
       </Routes>
     </Router>

@@ -14,9 +14,10 @@ const Footer = () => {
       <div>
         <h4 className="font-semibold mb-2">Features</h4>
         <ul className="space-y-1 text-sm">
-          <li><a href="#features" className="hover:underline">Diet Planner</a></li>
-          <li><a href="#features" className="hover:underline">Health Blogs</a></li>
-          <li><a href="#features" className="hover:underline">Wellness Games</a></li>
+          <li><a href="/diet-generator" className="hover:underline">Diet Generator</a></li>
+          <li><a href="/blog" className="hover:underline">Health Blogs</a></li>
+          <li><a href="/games" className="hover:underline">Wellness Games</a></li>
+          <li><a href="/menstrualcycle" className="hover:underline">Menstrual Cycle</a></li>
         </ul>
       </div>
 
@@ -45,4 +46,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer;

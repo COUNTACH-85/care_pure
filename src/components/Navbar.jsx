@@ -66,17 +66,18 @@ const Navbar = () => {
           <li><NavLink to="/diet-generator" className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`}>Diet Generator</NavLink></li>
           <li><NavLink to="/menstrualcycle" className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`}>Menstrual Cycle</NavLink></li>
           <li><NavLink to="/blog" className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`}>Blog</NavLink></li>
+          <li><NavLink to="/games" className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`}>Games</NavLink></li>
           {isLoggedIn ? (
             <>
               <li><Link to="/profile" className="hover:text-green-300">Profile</Link></li>
-              <li>
+              {/* <li>
                 <button
                   onClick={handleLogout}
                   className="hover:text-green-300"
                 >
                   Sign Out
                 </button>
-              </li>
+              </li> */}
             </>
           ) : (
             <>
@@ -93,11 +94,12 @@ const Navbar = () => {
           role="menu"
         >
           <ul className="flex flex-col gap-5 text-sm">
-            <li><NavLink to="/" className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-gray-400"}`} onClick={toggleMenu} role="menuitem">Home</NavLink></li>
-            <li><Link to="/dashboard" className="hover:text-green-300" onClick={toggleMenu} role="menuitem">Dashboard</Link></li>
-            <li><Link to="/diet-generator" className="hover:text-green-300" onClick={toggleMenu} role="menuitem">Diet Generator</Link></li>
-            <li><Link to="/menstrualcycle" className="hover:text-green-300" onClick={toggleMenu} role="menuitem">Menstrual Cycle</Link></li>
-            <li><Link to="/blog" className="hover:text-green-300" onClick={toggleMenu} role="menuitem">Blog</Link></li>
+            <li><NavLink to="/" className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`} onClick={toggleMenu} role="menuitem">Home</NavLink></li>
+            <li><NavLink to="/dashboard"  className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`} onClick={toggleMenu} role="menuitem">Dashboard</NavLink></li>
+            <li><NavLink to="/dNavLinkiet-generator"  className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`} onClick={toggleMenu} role="menuitem">Diet Generator</NavLink></li>
+            <li><NavLink to="/menstrualcycle"  className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`} onClick={toggleMenu} role="menuitem">Menstrual Cycle</NavLink></li>
+            <li><NavLink to="/blog"  className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`} onClick={toggleMenu} role="menuitem">Blog</NavLink></li>
+            <li><NavLink to="/games"  className={({isActive})=>`hover:text-green-300 ${isActive? "text-green-300" : "text-white"}`} onClick={toggleMenu} role="menuitem">Games</NavLink></li>
             {isLoggedIn ? (
               <>
                 <li><Link to="/profile" className="hover:text-green-300" onClick={toggleMenu} role="menuitem">Profile</Link></li>

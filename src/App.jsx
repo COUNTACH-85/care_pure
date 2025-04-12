@@ -12,7 +12,13 @@ const App = () => {
     <ErrorBoundary>
       <VoiceflowChatbot />
       <AppRoutes />
-      <Footer/>
+      <div className=" bg-gradient-to-br from-green-100 via-blue-50 to-purple-100 animate-fade-in relative overflow-hidden">
+        <main className="container mx-auto px-4 py-8 animate-slide-down relative">
+          <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
+            <Footer />
+          </div>
+        </main>
+      </div>
     </ErrorBoundary>
   );
 };
